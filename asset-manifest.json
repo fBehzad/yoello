@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/yoello/static/css/main.44113c3f.chunk.css",
-    "main.js": "/yoello/static/js/main.9f11ad06.chunk.js",
-    "main.js.map": "/yoello/static/js/main.9f11ad06.chunk.js.map",
+    "main.css": "/yoello/static/css/main.f451dc85.chunk.css",
+    "main.js": "/yoello/static/js/main.7e27ca85.chunk.js",
+    "main.js.map": "/yoello/static/js/main.7e27ca85.chunk.js.map",
     "runtime-main.js": "/yoello/static/js/runtime-main.5742cc3e.js",
     "runtime-main.js.map": "/yoello/static/js/runtime-main.5742cc3e.js.map",
     "static/js/2.e519f36e.chunk.js": "/yoello/static/js/2.e519f36e.chunk.js",
     "static/js/2.e519f36e.chunk.js.map": "/yoello/static/js/2.e519f36e.chunk.js.map",
     "index.html": "/yoello/index.html",
-    "precache-manifest.da5e27dcd6a561b05d95674b4df436bb.js": "/yoello/precache-manifest.da5e27dcd6a561b05d95674b4df436bb.js",
+    "precache-manifest.0343dc7b7437c425fe68c4ddec68c3c8.js": "/yoello/precache-manifest.0343dc7b7437c425fe68c4ddec68c3c8.js",
     "service-worker.js": "/yoello/service-worker.js",
-    "static/css/main.44113c3f.chunk.css.map": "/yoello/static/css/main.44113c3f.chunk.css.map",
+    "static/css/main.f451dc85.chunk.css.map": "/yoello/static/css/main.f451dc85.chunk.css.map",
     "static/js/2.e519f36e.chunk.js.LICENSE.txt": "/yoello/static/js/2.e519f36e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.5742cc3e.js",
     "static/js/2.e519f36e.chunk.js",
-    "static/css/main.44113c3f.chunk.css",
-    "static/js/main.9f11ad06.chunk.js"
+    "static/css/main.f451dc85.chunk.css",
+    "static/js/main.7e27ca85.chunk.js"
   ]
 }
