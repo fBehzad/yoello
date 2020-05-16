@@ -1,0 +1,123 @@
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+body,html {
+  width: 100vw;
+  margin: 0;
+  font-family: iranyekan, sans-serif;
+  scroll-behavior: smooth;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.d-flex{
+  display: flex;
+}
+.flex-row{
+flex-direction: row;
+}
+.flex-column{
+  flex-direction: column;
+}
+.justify-content-center{
+  justify-content: center;
+}
+.space-between{
+  justify-content: space-between;
+}
+.align-items.center{
+  align-items: center;
+}
+
+.px-1 {
+  padding-right: 4px;
+  padding-left: 4px;
+}
+.px-2 {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+.px-3 {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+.px-4 {
+  padding-right: 32px;
+  padding-left:32px;
+}
+.py-1 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.py-2 {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.py-3 {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.py-4 {
+  padding-top: 32px;
+  padding-bottom:32px;
+}
+.p-1 {
+  padding: 4px;
+}
+.p-2 {
+  padding: 8px;
+}
+.p-3 {
+  padding: 16px;
+}
+.p-4 {
+  padding: 32px;
+}
+.mx-1 {
+  margin-right: 4px;
+  margin-left: 4px;
+}
+.mx-2 {
+  margin-right: 8px;
+  margin-left: 8px;
+}
+.mx-3 {
+  margin-right: 16px;
+  margin-left: 16px;
+}
+.mx-4 {
+  margin-right: 32px;
+  margin-left:32px;
+}
+.my-1 {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.my-2 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.my-3 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.my-4 {
+  margin-top: 32px;
+  margin-bottom:32px;
+}
+.m-1 {
+  margin: 4px;
+}
+.m-2 {
+  margin: 8px;
+}
+.m-3 {
+  margin: 16px;
+}
+.m-4 {
+  margin: 32px;
+}
+@import "/ui/fonts";
+@import "/ui/variables";
+@import "/components/beerList/beerList.style";
