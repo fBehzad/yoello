@@ -45,17 +45,19 @@ class Infinitescroll extends React.Component {
   };
 
   render () {
+    const  {children,loadmore} = this.props;
     return (
       <React.Fragment>
-        {this.props.children}
-
+        {children}
+        {!loadmore &&
         <button
+          className="loadmore-btn"
           onClick={e => {
             this.loadMore();
           }}
         >
           Load More
-        </button>
+        </button>}
       </React.Fragment>
     );
   }

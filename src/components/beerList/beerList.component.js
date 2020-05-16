@@ -11,8 +11,7 @@ import Infinitescroll from '../infinitScroll/Infinitescroll';
 const BeerList = ({beers, addItem, cartItems, fetchBeerStart, filterData}) => {
   const [isOpenCart, setToggleDialog] = useState(false);
   const [beer, setBeer] = useState(null);
-
-
+  const [count, setCount] = useState(0);
   useEffect(() => {
     fetch(filterData);
   }, [filterData]);
@@ -39,8 +38,10 @@ const BeerList = ({beers, addItem, cartItems, fetchBeerStart, filterData}) => {
     }
 
   };
+
   const fetch = (data) => {
     fetchBeerStart(data);
+    setCount(data.per * data.page);
   };
 
 
@@ -48,12 +49,13 @@ const BeerList = ({beers, addItem, cartItems, fetchBeerStart, filterData}) => {
     <React.Fragment>
       <div className="beer-container">
         <Infinitescroll
+          loadmore = {beers.length < count}
           fetchBeerStart={({per, page}) => fetch({per, page, food: filterData.food})}>
           {beers && beers.map((beer, index) => (
             <div key={index} className="beer-content" onClick={() => isShowDialog(beer)}>
               <div className="beer-image-container">
-                <img src={`${beer.image_url}?50*50`}
-                     className="beer-image" alt="beer_image"/>
+                {beer.image_url ? <img src={`${beer.image_url}?50*50`} className="beer-image" alt="beer_image"/>:
+                  <img src="/assets/noImage.jpg" className="beer-image" alt="beer_image"/>}
               </div>
               <div className="beer-text">
                 <span className="beer-title">{beer.name}</span>
