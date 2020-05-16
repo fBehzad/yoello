@@ -12,11 +12,10 @@ const BeerList = ({beers, addItem, cartItems, fetchBeerStart, filterData}) => {
   const [isOpenCart, setToggleDialog] = useState(false);
   const [beer, setBeer] = useState(null);
   const [count, setCount] = useState(0);
+
   useEffect(() => {
     fetch(filterData);
   }, [filterData]);
-
-
 
   const [cartCollapse, setCartCollapse] = useState(false);
 
@@ -44,12 +43,13 @@ const BeerList = ({beers, addItem, cartItems, fetchBeerStart, filterData}) => {
     setCount(data.per * data.page);
   };
 
-
   return (
     <React.Fragment>
       <div className="beer-container">
         <Infinitescroll
-          loadmore = {beers.length < count}
+          extraData={filterData.food}
+          reset = {filterData.page !==1}
+          loadmore = {beers.length >= count}
           fetchBeerStart={({per, page}) => fetch({per, page, food: filterData.food})}>
           {beers && beers.map((beer, index) => (
             <div key={index} className="beer-content" onClick={() => isShowDialog(beer)}>

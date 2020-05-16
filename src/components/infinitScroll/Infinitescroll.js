@@ -4,7 +4,6 @@ class Infinitescroll extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      data: [],
       per: 21,
       page: 1,
       total_pages: null,
@@ -12,8 +11,8 @@ class Infinitescroll extends React.Component {
   }
 
   loadUser = () => {
-    const {per, page, data} = this.state;
-    this.props.fetchBeerStart({per, page, data});
+    const {per, page} = this.state;
+    this.props.fetchBeerStart({per, page});
   };
 
   componentDidMount () {
@@ -23,14 +22,24 @@ class Infinitescroll extends React.Component {
     });
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.extraData !== prevProps.extraData) {
+      this.setState({
+        per: 21,
+        page: 1,
+        total_pages: null,
+      })
+    }
+  }
+
   loadMore = () => {
-    this.setState(
-      prevState => ({
-        page: prevState.page + 1,
-        scrolling: true,
-      }),
-      this.loadUser,
-    );
+      this.setState(
+        prevState => ({
+          page: prevState.page + 1,
+          scrolling: true,
+        }),
+        this.loadUser,
+      );
   };
 
   handleScroll = () => {
@@ -49,7 +58,7 @@ class Infinitescroll extends React.Component {
     return (
       <React.Fragment>
         {children}
-        {!loadmore &&
+        {loadmore &&
         <button
           className="loadmore-btn"
           onClick={e => {

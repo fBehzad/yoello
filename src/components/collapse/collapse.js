@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import './collapse.style.sass'
+import './collapse.style.sass';
 
 export class Collapse extends Component {
   connected = false;
@@ -11,11 +11,11 @@ export class Collapse extends Component {
     active: false,
   };
 
-   collapseRef = React.createRef();
-   childrenRef = React.createRef();
+  collapseRef = React.createRef();
+  childrenRef = React.createRef();
 
-   calculate = (visibility) => {
-    const { auto } = this.props;
+  calculate = (visibility) => {
+    const {auto} = this.props;
     const collapseView = this.collapseRef.current;
     const childrenView = this.childrenRef.current;
 
@@ -27,44 +27,44 @@ export class Collapse extends Component {
 
     if (visibility) {
       collapseView.style.height = auto ? 'auto' : height;
-      collapseView.style.maxHeight = '380px'
+      collapseView.style.maxHeight = '380px';
     } else {
       collapseView.style.height = '0px';
     }
 
   };
 
-   show = () => {
+  show = () => {
     if (this.state.visibility) {
       return;
     }
     this.props.onShow && this.props.onShow();
-    this.setState({ visibility: true }, () => {
+    this.setState({visibility: true}, () => {
       this.calculate(true);
-      this.setState({ active: true });
+      this.setState({active: true});
     });
   };
 
-   hide = () => {
-    const { animationDuration } = this.props;
+  hide = () => {
+    const {animationDuration} = this.props;
 
     if (!this.state.visibility) {
       return;
     }
-    this.setState({ active: false }, () => {
+    this.setState({active: false}, () => {
       this.calculate(false);
       setTimeout(() => {
         if (!this.connected) {
           return;
         }
-        this.setState({ visibility: false }, () => {
+        this.setState({visibility: false}, () => {
           this.props.onHide && this.props.onHide();
         });
       }, animationDuration);
     });
   };
 
-   setVisibility = (value) => {
+  setVisibility = (value) => {
     if (value) {
       this.show();
     } else {
@@ -79,33 +79,29 @@ export class Collapse extends Component {
   };
 
 
-  componentWillMount() {
-    const { flag } = this.props;
+  componentDidMount () {
+    const {flag} = this.props;
     if (typeof flag !== 'undefined') {
       this.state.visibility = flag;
       this.state.active = flag;
     }
-  }
-
-  componentDidMount() {
     this.connected = true;
     this.refresh();
   }
 
-
-  componentWillUnmount() {
+  componentWillUnmount () {
     this.connected = false;
   }
 
-  componentWillReceiveProps(nextProps, nextContext) {
+  componentWillReceiveProps (nextProps, nextContext) {
     if (typeof nextProps.flag !== 'undefined' && this.props.flag !== nextProps.flag) {
       this.setVisibility(nextProps.flag);
     }
   }
 
-  render() {
-    const { visibility, active } = this.state;
-    const { children, className, content, animationDuration, flag } = this.props;
+  render () {
+    const {visibility, active} = this.state;
+    const {children, className, content, animationDuration, flag} = this.props;
     return (
       <Fragment>
         {content && content({
@@ -117,10 +113,8 @@ export class Collapse extends Component {
         })}
         <div
           ref={this.collapseRef}
-          className={`collapse-wrapper ${className || ''} ${visibility ?
-            'visibility' :
-            ''} ${active ? 'active' : ''}`}
-          style={{ transitionDuration: `${visibility ? animationDuration : 0}ms` }}
+          className={`collapse-wrapper ${className || ''} ${visibility ? 'visibility' : ''} ${active ? 'active' : ''}`}
+          style={{transitionDuration: `${visibility ? animationDuration : 0}ms`}}
         >
           {(visibility && children) && children({
             visibility,
